@@ -3,8 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
   *{
     padding: 0;
     margin: 0;
@@ -13,7 +12,7 @@ export default createGlobalStyle`
   }
 
   body{
-    background: #353940;
+    background: #FBFBFB;
     color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
     text-rendering: optimizeLegibility !important;

@@ -5,40 +5,39 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import AuthActions from 'store/ducks/auth';
 
-import Button from 'styles/components/Button';
-import { Container, SignForm } from './styles';
+import {
+  Container, SignForm, Button, Logo,
+} from './styles';
 
-function SignIn({ signInRequest, history }) {
+function SignIn({ signInRequest }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
-
     signInRequest(email, password);
   }
 
   return (
     <Container>
+      <Logo />
       <SignForm onSubmit={handleSubmit}>
-        <h1>Welcome</h1>
-
-        <span>E-MAIL</span>
-        <input type="email" name="email" email={email} onChange={e => setEmail(e.target.value)} />
-
-        <span>PASSWORD</span>
+        <input
+          type="email"
+          name="email"
+          email={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="Your e-mail"
+        />
         <input
           type="password"
           name="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
+          placeholder="Secret password"
         />
-
-        <Button size="big" type="submit">
+        <Button type="submit">
           Sign In
-        </Button>
-        <Button size="big" color="gray" onClick={() => history.push('/signup')}>
-          Sign up
         </Button>
       </SignForm>
     </Container>
@@ -47,9 +46,6 @@ function SignIn({ signInRequest, history }) {
 
 SignIn.propTypes = {
   signInRequest: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(AuthActions, dispatch);

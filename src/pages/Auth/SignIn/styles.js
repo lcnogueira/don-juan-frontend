@@ -1,56 +1,69 @@
 import styled from 'styled-components';
 
+import { colors } from 'styles';
+
 export const Container = styled.div`
-  flex: 1;
   height: 100%;
-  background: #202225;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(${colors.darkTransparent},${colors.darkerTransparent}), url('https://rocketfinalchallenge.s3.amazonaws.com/signin_background.png');
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
+export const Logo = styled.img.attrs({
+  src: 'https://rocketfinalchallenge.s3.amazonaws.com/logo.svg',
+})`
+  color:${colors.white};
+  width:72px;
+  height:72px;
+  margin-bottom: 20px;
+`;
+
+
 export const SignForm = styled.form`
-  background: #36393f;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
-  padding: 40px;
   width: 400px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 
-  h1 {
-    font-size: 26px;
-    font-weight: 500;
-    text-align: center;
-    margin: 0 0 10px;
-  }
-
-  span {
-    color: #b9bbbe;
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 600;
-    margin-top: 15px;
-  }
-
   input {
-    height: 40px;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #f6f6f6;
-    margin-top: 8px;
+    background-color: ${colors.white};
+    border: 1px solid ${colors.darkTransparent};
+    border-radius: 10px;
+    height: 50px;
+    padding: 25px;
+    margin-top: 10px;
     transition: border 0.15s ease;
-    font-size: 16px;
+    font-size: 18px;
+    color: ${colors.light};
 
     &:focus {
-      border-color: #7289da;
+      border-color: ${colors.primary};
     }
   }
-
   button {
-    margin: 20px 0 0;
+    margin: 15px 0 0;
+  }
+`;
+
+export const Button = styled.button`
+  background: ${colors.primary};
+  border: 0;
+  border-radius: 10px;
+  height: 50px;
+  transition: background-color 0.15s ease;
+  color: ${colors.white};
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0;
+  font-weight: bold;
+
+  &:hover {
+    background: #a43d3d;
   }
 `;
