@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
 import 'config/reactotron';
+import React, { Fragment } from 'react';
 import GlobalStyle from 'styles/global';
 import ReduxToastr from 'react-redux-toastr';
 
