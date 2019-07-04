@@ -25,7 +25,7 @@ export const Logo = styled.img.attrs({
 
 
 export const SignForm = styled.form`
-  width: 400px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -38,11 +38,11 @@ export const SignForm = styled.form`
     padding: 25px;
     margin-top: 10px;
     transition: border 0.15s ease;
-    font-size: 18px;
+    font-size: 16px;
     color: ${colors.light};
 
     &:focus {
-      border-color: ${colors.primary};
+      border-color: ${colors.secondary};
     }
   }
   button {
@@ -51,13 +51,13 @@ export const SignForm = styled.form`
 `;
 
 export const Button = styled.button`
-  background: ${colors.primary};
+  background: ${colors.secondary};
   border: 0;
   border-radius: 10px;
   height: 50px;
   transition: background-color 0.15s ease;
   color: ${colors.white};
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   letter-spacing: 0;
