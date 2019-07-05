@@ -1,10 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import AuthActions from 'store/ducks/auth';
 
 import {
   Header, HeaderContent, HeaderContainer, Logo, UserInfo, ShoppingCartButton, Icon, Badge,
 } from './styles';
 
-const HeaderComponent = () => (
+const HeaderComponent = ({ signOut }) => (
   <Header>
     <HeaderContainer>
       <HeaderContent>
@@ -14,7 +19,7 @@ const HeaderComponent = () => (
       <HeaderContent>
         <UserInfo>
           <span>Diego Fernandes</span>
-          <button type="button">Logout</button>
+          <button type="button" onClick={() => signOut()}>Logout</button>
         </UserInfo>
         <ShoppingCartButton>
           <Icon />
@@ -25,4 +30,13 @@ const HeaderComponent = () => (
   </Header>
 );
 
-export default HeaderComponent;
+HeaderComponent.propTypes = {
+  signOut: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators(AuthActions, dispatch);
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(HeaderComponent);

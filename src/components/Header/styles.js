@@ -56,10 +56,15 @@ export const UserInfo = styled.div`
 
   button{
     color: ${colors.white};
-    background: none;
+    background: transparent;
     border: none;
     font-size: 14px;
     opacity: 0.6;
+
+    &:focus, &:hover{
+      opacity: 0.8;
+      text-decoration: underline;
+    }
   }
 `;
 
