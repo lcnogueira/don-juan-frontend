@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
+import colors from './colors';
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
   *{
     padding: 0;
     margin: 0;
@@ -13,8 +13,8 @@ export default createGlobalStyle`
 
   body{
     background: #FBFBFB;
-    color: #fff;
-    font-family: 'Source Sans Pro', sans-serif;
+    color: ${colors.primary};
+    font-family: 'Helvetica', sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
   }
@@ -24,7 +24,7 @@ export default createGlobalStyle`
   }
 
   input, button {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Helvetica', sans-serif;
   }
 
   button{

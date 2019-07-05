@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 import { colors } from 'styles';
 
+import background from 'assets/images/signin_background.png';
+import logo from 'assets/images/logo.svg';
+
 export const Container = styled.div`
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(${colors.darkTransparent},${colors.darkerTransparent}), url('https://rocketfinalchallenge.s3.amazonaws.com/signin_background.png');
+  background-image: linear-gradient(${colors.darkTransparent},${colors.darkerTransparent}), url(${background});
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +18,8 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled.img.attrs({
-  src: 'https://rocketfinalchallenge.s3.amazonaws.com/logo.svg',
+  src: logo,
 })`
-  color:${colors.white};
   width:72px;
   height:72px;
   margin-bottom: 20px;
@@ -25,7 +27,7 @@ export const Logo = styled.img.attrs({
 
 
 export const SignForm = styled.form`
-  width: 400px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -38,11 +40,11 @@ export const SignForm = styled.form`
     padding: 25px;
     margin-top: 10px;
     transition: border 0.15s ease;
-    font-size: 18px;
+    font-size: 16px;
     color: ${colors.light};
 
     &:focus {
-      border-color: ${colors.primary};
+      border-color: ${colors.secondary};
     }
   }
   button {
@@ -51,13 +53,13 @@ export const SignForm = styled.form`
 `;
 
 export const Button = styled.button`
-  background: ${colors.primary};
+  background: ${colors.secondary};
   border: 0;
   border-radius: 10px;
   height: 50px;
   transition: background-color 0.15s ease;
   color: ${colors.white};
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   letter-spacing: 0;
