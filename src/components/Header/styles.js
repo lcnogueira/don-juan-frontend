@@ -90,13 +90,14 @@ export const Icon = styled.img.attrs({
 `;
 
 export const Badge = styled.span`
-  display: block;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 15px;
-  height: 15px;
+  top: -7px;
+  right: -7px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #FFC108;
 `;
