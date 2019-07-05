@@ -50,6 +50,26 @@ export function* signUp({ name, email, password }) {
   }
 }
 
+export function* getUser() {
+  const signedIn = yield select(state => state.auth.signedIn);
+
+  if (!signedIn) return;
+
+  try {
+    const response = yield call(api.get, 'users');
+
+    yield put(AuthActions.getUserSuccess(response.data));
+  } catch (error) {
+    yield put(
+      toastrActions.add({
+        type: 'error',
+        title: 'User data not loaded',
+        message: 'Error when trying to load user data',
+      }),
+    );
+  }
+}
+
 export function* getPermissions() {
   const signedIn = yield select(state => state.auth.signedIn);
 

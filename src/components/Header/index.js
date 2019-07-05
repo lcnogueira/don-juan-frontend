@@ -9,7 +9,7 @@ import {
   Header, HeaderContent, HeaderContainer, Logo, UserInfo, ShoppingCartButton, Icon, Badge,
 } from './styles';
 
-const HeaderComponent = ({ signOut, ordersAmount }) => (
+const HeaderComponent = ({ signOut, ordersAmount, userName }) => (
   <Header>
     <HeaderContainer>
       <HeaderContent>
@@ -18,7 +18,7 @@ const HeaderComponent = ({ signOut, ordersAmount }) => (
       </HeaderContent>
       <HeaderContent>
         <UserInfo>
-          <span>Diego Fernandes</span>
+          <span>{userName}</span>
           <button type="button" onClick={() => signOut()}>Logout</button>
         </UserInfo>
         <ShoppingCartButton>
@@ -33,10 +33,12 @@ const HeaderComponent = ({ signOut, ordersAmount }) => (
 HeaderComponent.propTypes = {
   signOut: PropTypes.func.isRequired,
   ordersAmount: PropTypes.number.isRequired,
+  userName: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ orders }) => ({
+const mapStateToProps = ({ orders, auth }) => ({
   ordersAmount: orders.data.length > 0 ? orders.data.length : 0,
+  userName: auth.user && auth.user.name,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(AuthActions, dispatch);
