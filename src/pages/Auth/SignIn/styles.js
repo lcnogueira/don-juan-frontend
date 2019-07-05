@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 import { colors } from 'styles';
 
+import background from 'assets/images/signin_background.png';
+import logo from 'assets/images/logo.svg';
+
 export const Container = styled.div`
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(${colors.darkTransparent},${colors.darkerTransparent}), url('https://rocketfinalchallenge.s3.amazonaws.com/signin_background.png');
+  background-image: linear-gradient(${colors.darkTransparent},${colors.darkerTransparent}), url(${background});
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +18,8 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled.img.attrs({
-  src: 'https://rocketfinalchallenge.s3.amazonaws.com/logo.svg',
+  src: logo,
 })`
-  color:${colors.white};
   width:72px;
   height:72px;
   margin-bottom: 20px;
