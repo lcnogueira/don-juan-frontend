@@ -15,6 +15,7 @@ const Routes = () => (
     <Switch>
       <Guest path="/signin" component={SignIn} />
       <Private path="/" exact component={Main} />
+      <Private component={Main} />
     </Switch>
   </ConnectedRouter>
 );

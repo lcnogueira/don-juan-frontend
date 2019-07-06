@@ -27,6 +27,7 @@ function SignIn({ signInRequest }) {
           name="email"
           email={email}
           onChange={e => setEmail(e.target.value)}
+          autoComplete="username"
           placeholder="Your e-mail"
         />
         <input
@@ -34,6 +35,7 @@ function SignIn({ signInRequest }) {
           name="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
+          autoComplete="current-password"
           placeholder="Secret password"
         />
         <Button type="submit">

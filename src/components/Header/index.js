@@ -33,7 +33,11 @@ const HeaderComponent = ({ signOut, ordersAmount, userName }) => (
 HeaderComponent.propTypes = {
   signOut: PropTypes.func.isRequired,
   ordersAmount: PropTypes.number.isRequired,
-  userName: PropTypes.string.isRequired,
+  userName: PropTypes.string,
+};
+
+HeaderComponent.defaultProps = {
+  userName: null,
 };
 
 const mapStateToProps = ({ orders, auth }) => ({
