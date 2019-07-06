@@ -83,7 +83,7 @@ export const ItemsContainer = styled.div`
 
 export const Item = styled.div`
   display: flex;
-  width: 243px;
+  width: 238px;
   border-radius: 10px;
   border: 1px solid ${colors.border};
   padding: 15px;
