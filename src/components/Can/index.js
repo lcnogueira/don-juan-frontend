@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function checkAuth({ roles, permissions }, checkRole, checkPermission) {
   if (checkRole && !roles.includes(checkRole)) {
@@ -10,13 +10,11 @@ function checkAuth({ roles, permissions }, checkRole, checkPermission) {
   return true;
 }
 
-const Can = ({
-  auth, children, checkRole, checkPermission,
-}) => (typeof children === 'function'
-  ? children(checkAuth(auth, checkRole, checkPermission))
-  : checkAuth(auth, checkRole, checkPermission) && children);
+function Can({ children, checkRole, checkPermission }) {
+  const auth = useSelector(state => state.auth);
+  return (typeof children === 'function'
+    ? children(checkAuth(auth, checkRole, checkPermission))
+    : checkAuth(auth, checkRole, checkPermission) && children);
+}
 
-const mapStateToProps = state => ({
-  auth: state.auth,
-});
-export default connect(mapStateToProps)(Can);
+export default Can;

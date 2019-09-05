@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch } from 'react-redux';
 import AuthActions from 'store/ducks/auth';
 
 import {
   Container, SignForm, Button, Logo,
 } from './styles';
 
-function SignIn({ signInRequest }) {
+export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   function handleSubmit(e) {
     e.preventDefault();
-    signInRequest(email, password);
+    dispatch(AuthActions.signInRequest(email, password));
   }
 
   return (
@@ -45,14 +44,3 @@ function SignIn({ signInRequest }) {
     </Container>
   );
 }
-
-SignIn.propTypes = {
-  signInRequest: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = dispatch => bindActionCreators(AuthActions, dispatch);
-
-export default connect(
-  null,
-  mapDispatchToProps,
-)(SignIn);
