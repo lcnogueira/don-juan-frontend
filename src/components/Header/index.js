@@ -11,6 +11,7 @@ export default function HeaderComponent() {
   const ordersAmount = useSelector(({ orders }) => (orders.data.length > 0 ? orders.data.length : 0));
   const userName = useSelector(({ auth }) => auth.user && auth.user.name);
   const dispatch = useDispatch();
+
   return (
     <Header>
       <HeaderContainer>

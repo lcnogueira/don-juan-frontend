@@ -5,21 +5,36 @@
     "browser": true,
     "jest": true
   },
-  "plugins": ["react", "jsx-a11y", "import"],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "react-hooks"
+  ],
   "rules": {
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".jsx"] }
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
     ],
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "import/no-cycle": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": ["node_modules", "src"]
+        "moduleDirectory": [
+          "node_modules",
+          "src"
+        ]
       }
     }
   }
